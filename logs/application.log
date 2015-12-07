@@ -1,0 +1,13 @@
+2015-12-07 11:10:31,366 - [INFO] - from play in pool-16-thread-4 
+Listening for HTTP on /0:0:0:0:0:0:0:0:9000
+
+2015-12-07 11:10:36,600 - [INFO] - from application in play-internal-execution-context-1 
+ReactiveMongoPlugin starting...
+
+2015-12-07 11:10:36,614 - [INFO] - from application in play-internal-execution-context-1 
+ReactiveMongoPlugin successfully started with db 'came_tool'! Servers:
+		[localhost:27017]
+
+2015-12-07 11:10:36,622 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+

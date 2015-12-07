@@ -1,0 +1,32 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+POST     /addpost                           controllers.PostsController.add_post
+POST     /addcomment                        controllers.PostsController.add_comment
+POST     /editpost                          controllers.PostsController.edit_post
+POST     /editcomment                       controllers.PostsController.edit_comment
+POST     /deletepost                        controllers.PostsController.delete_post
+POST     /deletecomment                     controllers.PostsController.delete_comment
+
+
+POST 	 /addlecture                        controllers.LectureController.add_lecture
+POST 	 /editlecture                       controllers.LectureController.edit_lecture
+POST 	 /deletelecture                     controllers.LectureController.delete_lecture
+
+
+POST 	 /addassignment                     controllers.AssignmentController.add_assignment
+POST 	 /editassignment                    controllers.AssignmentController.edit_assignment
+POST 	 /deleteassignment                  controllers.AssignmentController.delete_assignment
+
+
+
+
+GET      /posts                   			controllers.PostsController.getPosts(course_id:Int,post_id:Int)
+GET      /assignment                   		controllers.AssignmentController.getAssignment(course_id:Int,a_id:Int)
+
+
+# Map static resources from the /public folder to the /assets URL path
+#GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+

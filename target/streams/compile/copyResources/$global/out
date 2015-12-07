@@ -1,0 +1,5 @@
+[0m[[0mdebug[0m] [0mCopy resource mappings: [0m
+[0m[[0mdebug[0m] [0m	(/home/chandrasekar/Desktop/Independent_Study/Mti_Chat_Room/play-scala-intro/conf/routes,/home/chandrasekar/Desktop/Independent_Study/Mti_Chat_Room/play-scala-intro/target/scala-2.10/classes/routes)[0m
+[0m[[0mdebug[0m] [0m	(/home/chandrasekar/Desktop/Independent_Study/Mti_Chat_Room/play-scala-intro/conf/logback.xml,/home/chandrasekar/Desktop/Independent_Study/Mti_Chat_Room/play-scala-intro/target/scala-2.10/classes/logback.xml)[0m
+[0m[[0mdebug[0m] [0m	(/home/chandrasekar/Desktop/Independent_Study/Mti_Chat_Room/play-scala-intro/conf/application.conf,/home/chandrasekar/Desktop/Independent_Study/Mti_Chat_Room/play-scala-intro/target/scala-2.10/classes/application.conf)[0m
+[0m[[0mdebug[0m] [0m	(/home/chandrasekar/Desktop/Independent_Study/Mti_Chat_Room/play-scala-intro/conf/play.plugins,/home/chandrasekar/Desktop/Independent_Study/Mti_Chat_Room/play-scala-intro/target/scala-2.10/classes/play.plugins)[0m

@@ -1,0 +1,6 @@
+1. Add Post:
+
+	curl --header "Content-type: application/json" --request POST --data '{ "id" : 2, "e_mail" : "hariharan.11@wright.edu", "f_name" : "Chandrasekar",	"l_name" : "Hariharan", "profile_pic" : "path_file", "p_text" : "Text of the post","u_id": 1}'  http://localhost:9000/
+
+2. Add a Comment:
+
