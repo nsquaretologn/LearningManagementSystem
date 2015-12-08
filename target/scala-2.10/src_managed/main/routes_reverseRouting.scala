@@ -1,6 +1,6 @@
 // @SOURCE:/home/chandrasekar/Desktop/Independent_Study/Mti_Chat_Room/play-scala-intro/conf/routes
-// @HASH:7749735eed6ac5de890af0ea65152bcc372d62d6
-// @DATE:Mon Dec 07 09:22:06 EST 2015
+// @HASH:106126f1de96c7c481f082d257e19c94e381aa9e
+// @DATE:Mon Dec 07 22:00:57 EST 2015
 
 import Routes.{prefix => _prefix, defaultPrefix => _defaultPrefix}
 import play.core._
@@ -13,6 +13,7 @@ import play.api.mvc._
 import Router.queryString
 
 
+// @LINE:28
 // @LINE:27
 // @LINE:26
 // @LINE:21
@@ -29,6 +30,7 @@ import Router.queryString
 // @LINE:6
 package controllers {
 
+// @LINE:28
 // @LINE:16
 // @LINE:15
 // @LINE:14
@@ -44,6 +46,12 @@ def delete_lecture(): Call = {
 // @LINE:15
 def edit_lecture(): Call = {
    Call("POST", _prefix + { _defaultPrefix } + "editlecture")
+}
+                                                
+
+// @LINE:28
+def getLecture(course_id:Int, lecture_id:Int): Call = {
+   Call("GET", _prefix + { _defaultPrefix } + "lecture" + queryString(List(Some(implicitly[QueryStringBindable[Int]].unbind("course_id", course_id)), Some(implicitly[QueryStringBindable[Int]].unbind("lecture_id", lecture_id)))))
 }
                                                 
 
@@ -148,6 +156,7 @@ def getAssignment(course_id:Int, a_id:Int): Call = {
                   
 
 
+// @LINE:28
 // @LINE:27
 // @LINE:26
 // @LINE:21
@@ -164,6 +173,7 @@ def getAssignment(course_id:Int, a_id:Int): Call = {
 // @LINE:6
 package controllers.javascript {
 
+// @LINE:28
 // @LINE:16
 // @LINE:15
 // @LINE:14
@@ -187,6 +197,17 @@ def edit_lecture : JavascriptReverseRoute = JavascriptReverseRoute(
    """
       function() {
       return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "editlecture"})
+      }
+   """
+)
+                        
+
+// @LINE:28
+def getLecture : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.LectureController.getLecture",
+   """
+      function(course_id,lecture_id) {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "lecture" + _qS([(""" + implicitly[QueryStringBindable[Int]].javascriptUnbind + """)("course_id", course_id), (""" + implicitly[QueryStringBindable[Int]].javascriptUnbind + """)("lecture_id", lecture_id)])})
       }
    """
 )
@@ -353,6 +374,7 @@ def getAssignment : JavascriptReverseRoute = JavascriptReverseRoute(
         
 
 
+// @LINE:28
 // @LINE:27
 // @LINE:26
 // @LINE:21
@@ -370,6 +392,7 @@ def getAssignment : JavascriptReverseRoute = JavascriptReverseRoute(
 package controllers.ref {
 
 
+// @LINE:28
 // @LINE:16
 // @LINE:15
 // @LINE:14
@@ -385,6 +408,12 @@ def delete_lecture(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 // @LINE:15
 def edit_lecture(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.LectureController.edit_lecture(), HandlerDef(this, "controllers.LectureController", "edit_lecture", Seq(), "POST", """""", _prefix + """editlecture""")
+)
+                      
+
+// @LINE:28
+def getLecture(course_id:Int, lecture_id:Int): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.LectureController.getLecture(course_id, lecture_id), HandlerDef(this, "controllers.LectureController", "getLecture", Seq(classOf[Int], classOf[Int]), "GET", """""", _prefix + """lecture""")
 )
                       
 

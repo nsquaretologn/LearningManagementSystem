@@ -25,6 +25,7 @@ POST 	 /deleteassignment                  controllers.AssignmentController.delet
 
 GET      /posts                   			controllers.PostsController.getPosts(course_id:Int,post_id:Int)
 GET      /assignment                   		controllers.AssignmentController.getAssignment(course_id:Int,a_id:Int)
+GET      /lecture                   		controllers.LectureController.getLecture(course_id:Int,lecture_id:Int)
 
 
 # Map static resources from the /public folder to the /assets URL path

@@ -175,7 +175,7 @@ object PostsController extends Controller {
 // View the Post
 
   /** Get Posts and Comment List */
-  def getPosts(course_id:Int,post_id:Int) = Action.async{ 
+  def getPost(course_id:Int,post_id:Int) = Action.async{ 
  
           val messages = PostsDao.findPosts(course_id,post_id)
           

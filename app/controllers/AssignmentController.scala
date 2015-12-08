@@ -220,26 +220,11 @@ object AssignmentController extends Controller {
  	def getAssignment(course_id:Int,a_id:Int) = Action.async{ 
 
            req =>
-      println("Course id is "+course_id)
-      println("Assignment id is "+a_id)
-
       val messages = AssignmentDao.findAssignments(course_id,a_id)
-      Future{
-            messages.onComplete
-            {
-               case Success(assignment)=>  Ok(assignment.head.toString())
-               case Failure(assignment)=>  Ok("Invalid Inputs") 
-           } 
-}
-     //  var return_message =""
-     
-      
-     //    Future{Ok(return_message)}
-               
+      messages.map {
+         value => Ok(Json.toJson(value))
+      }
     }
-
-
-
 
   //Delete Lecture
  	def delete_assignment = Action.async(parse.json) { 
@@ -258,8 +243,6 @@ object AssignmentController extends Controller {
 
       Future{PostsDao.update_post(filter_condition,update_value)}
       Future{Ok("hi")}
-
-
     }
 
 }

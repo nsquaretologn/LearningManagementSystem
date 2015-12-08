@@ -1,6 +1,6 @@
 // @SOURCE:/home/chandrasekar/Desktop/Independent_Study/Mti_Chat_Room/play-scala-intro/conf/routes
-// @HASH:7749735eed6ac5de890af0ea65152bcc372d62d6
-// @DATE:Mon Dec 07 09:22:06 EST 2015
+// @HASH:106126f1de96c7c481f082d257e19c94e381aa9e
+// @DATE:Mon Dec 07 22:00:57 EST 2015
 
 
 import play.core._
@@ -83,7 +83,11 @@ private[this] lazy val controllers_PostsController_getPosts12 = Route("GET", Pat
 // @LINE:27
 private[this] lazy val controllers_AssignmentController_getAssignment13 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("assignment"))))
         
-def documentation = List(("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """addpost""","""controllers.PostsController.add_post"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """addcomment""","""controllers.PostsController.add_comment"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """editpost""","""controllers.PostsController.edit_post"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """editcomment""","""controllers.PostsController.edit_comment"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """deletepost""","""controllers.PostsController.delete_post"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """deletecomment""","""controllers.PostsController.delete_comment"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """addlecture""","""controllers.LectureController.add_lecture"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """editlecture""","""controllers.LectureController.edit_lecture"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """deletelecture""","""controllers.LectureController.delete_lecture"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """addassignment""","""controllers.AssignmentController.add_assignment"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """editassignment""","""controllers.AssignmentController.edit_assignment"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """deleteassignment""","""controllers.AssignmentController.delete_assignment"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """posts""","""controllers.PostsController.getPosts(course_id:Int, post_id:Int)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """assignment""","""controllers.AssignmentController.getAssignment(course_id:Int, a_id:Int)""")).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
+
+// @LINE:28
+private[this] lazy val controllers_LectureController_getLecture14 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("lecture"))))
+        
+def documentation = List(("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """addpost""","""controllers.PostsController.add_post"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """addcomment""","""controllers.PostsController.add_comment"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """editpost""","""controllers.PostsController.edit_post"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """editcomment""","""controllers.PostsController.edit_comment"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """deletepost""","""controllers.PostsController.delete_post"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """deletecomment""","""controllers.PostsController.delete_comment"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """addlecture""","""controllers.LectureController.add_lecture"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """editlecture""","""controllers.LectureController.edit_lecture"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """deletelecture""","""controllers.LectureController.delete_lecture"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """addassignment""","""controllers.AssignmentController.add_assignment"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """editassignment""","""controllers.AssignmentController.edit_assignment"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """deleteassignment""","""controllers.AssignmentController.delete_assignment"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """posts""","""controllers.PostsController.getPosts(course_id:Int, post_id:Int)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """assignment""","""controllers.AssignmentController.getAssignment(course_id:Int, a_id:Int)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """lecture""","""controllers.LectureController.getLecture(course_id:Int, lecture_id:Int)""")).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
   case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
   case l => s ++ l.asInstanceOf[List[(String,String,String)]] 
 }}
@@ -199,6 +203,14 @@ case controllers_PostsController_getPosts12(params) => {
 case controllers_AssignmentController_getAssignment13(params) => {
    call(params.fromQuery[Int]("course_id", None), params.fromQuery[Int]("a_id", None)) { (course_id, a_id) =>
         invokeHandler(controllers.AssignmentController.getAssignment(course_id, a_id), HandlerDef(this, "controllers.AssignmentController", "getAssignment", Seq(classOf[Int], classOf[Int]),"GET", """""", Routes.prefix + """assignment"""))
+   }
+}
+        
+
+// @LINE:28
+case controllers_LectureController_getLecture14(params) => {
+   call(params.fromQuery[Int]("course_id", None), params.fromQuery[Int]("lecture_id", None)) { (course_id, lecture_id) =>
+        invokeHandler(controllers.LectureController.getLecture(course_id, lecture_id), HandlerDef(this, "controllers.LectureController", "getLecture", Seq(classOf[Int], classOf[Int]),"GET", """""", Routes.prefix + """lecture"""))
    }
 }
         

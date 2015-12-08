@@ -6,6 +6,7 @@ import play.api.libs.json.{Writes, Json, JsObject,JsString,JsNumber,JsValue}
 import play.api.libs.concurrent.Execution.Implicits._
 import models._
 import services.PostsDao
+import services.LectureDao
 import reactivemongo.bson.BSONObjectID
 import scala.concurrent.Future
 import scala.concurrent.duration._
@@ -184,7 +185,15 @@ object LectureController extends Controller {
   //   }
 
 
+  //View Assignment
+  def getLecture(course_id:Int,lecture_id:Int) = Action.async{ 
 
+      req =>
+      val messages = LectureDao.findLecture(course_id,lecture_id)
+      messages.map {
+         value => Ok(Json.toJson(value))
+      }
+    }
 
   //Delete Lecture
  	def delete_lecture = Action.async(parse.json) { 

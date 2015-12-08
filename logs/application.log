@@ -1,13 +1,128 @@
-2015-12-07 11:10:31,366 - [INFO] - from play in pool-16-thread-4 
+2015-12-07 21:20:56,765 - [INFO] - from play in pool-5-thread-6 
 Listening for HTTP on /0:0:0:0:0:0:0:0:9000
 
-2015-12-07 11:10:36,600 - [INFO] - from application in play-internal-execution-context-1 
+2015-12-07 21:21:12,949 - [INFO] - from application in play-internal-execution-context-1 
 ReactiveMongoPlugin starting...
 
-2015-12-07 11:10:36,614 - [INFO] - from application in play-internal-execution-context-1 
+2015-12-07 21:21:12,970 - [INFO] - from application in play-internal-execution-context-1 
 ReactiveMongoPlugin successfully started with db 'came_tool'! Servers:
 		[localhost:27017]
 
-2015-12-07 11:10:36,622 - [INFO] - from play in play-internal-execution-context-1 
+2015-12-07 21:21:12,975 - [INFO] - from play in play-internal-execution-context-1 
 Application started (Dev)
+
+2015-12-07 22:01:00,875 - [ERROR] - from application in New I/O worker #3 
+
+
+! @6oc98e885 - Internal server error, for (GET) [/lecture?course_id=2&lecture_id=1] ->
+
+play.PlayExceptions$CompilationException: Compilation error[not found: value LectureDao]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10-2.2.1.jar:2.2.1]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10-2.2.1.jar:2.2.1]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library.jar:na]
+
+2015-12-07 22:01:42,346 - [INFO] - from application in play-internal-execution-context-1 
+ReactiveMongoPlugin stops, closing connections...
+
+2015-12-07 22:01:42,370 - [INFO] - from application in ForkJoinPool-2-worker-7 
+ReactiveMongo Connections stopped. [Success(Closed)]
+
+2015-12-07 22:01:42,455 - [INFO] - from application in play-internal-execution-context-1 
+ReactiveMongoPlugin starting...
+
+2015-12-07 22:01:42,455 - [INFO] - from application in play-internal-execution-context-1 
+ReactiveMongoPlugin successfully started with db 'came_tool'! Servers:
+		[localhost:27017]
+
+2015-12-07 22:01:42,455 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2015-12-07 22:06:19,280 - [INFO] - from application in play-internal-execution-context-1 
+ReactiveMongoPlugin stops, closing connections...
+
+2015-12-07 22:06:19,293 - [INFO] - from application in ForkJoinPool-2-worker-5 
+ReactiveMongo Connections stopped. [Success(Closed)]
+
+2015-12-07 22:06:19,348 - [INFO] - from application in play-internal-execution-context-1 
+ReactiveMongoPlugin starting...
+
+2015-12-07 22:06:19,349 - [INFO] - from application in play-internal-execution-context-1 
+ReactiveMongoPlugin successfully started with db 'came_tool'! Servers:
+		[localhost:27017]
+
+2015-12-07 22:06:19,349 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2015-12-07 22:06:19,387 - [ERROR] - from reactivemongo.core.actors.MongoDBSystem in reactivemongo-akka.actor.default-dispatcher-2 
+The entire node set is unreachable, is there a network problem?
+
+2015-12-07 22:15:53,649 - [INFO] - from application in play-internal-execution-context-1 
+ReactiveMongoPlugin stops, closing connections...
+
+2015-12-07 22:15:53,659 - [INFO] - from application in ForkJoinPool-2-worker-1 
+ReactiveMongo Connections stopped. [Success(Closed)]
+
+2015-12-07 22:15:53,713 - [INFO] - from application in play-internal-execution-context-1 
+ReactiveMongoPlugin starting...
+
+2015-12-07 22:15:53,713 - [INFO] - from application in play-internal-execution-context-1 
+ReactiveMongoPlugin successfully started with db 'came_tool'! Servers:
+		[localhost:27017]
+
+2015-12-07 22:15:53,713 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2015-12-07 22:44:19,253 - [INFO] - from application in play-internal-execution-context-1 
+ReactiveMongoPlugin stops, closing connections...
+
+2015-12-07 22:44:19,266 - [INFO] - from application in ForkJoinPool-2-worker-1 
+ReactiveMongo Connections stopped. [Success(Closed)]
+
+2015-12-07 22:44:19,317 - [INFO] - from application in play-internal-execution-context-1 
+ReactiveMongoPlugin starting...
+
+2015-12-07 22:44:19,317 - [INFO] - from application in play-internal-execution-context-1 
+ReactiveMongoPlugin successfully started with db 'came_tool'! Servers:
+		[localhost:27017]
+
+2015-12-07 22:44:19,317 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2015-12-07 22:44:19,355 - [ERROR] - from reactivemongo.core.actors.MongoDBSystem in reactivemongo-akka.actor.default-dispatcher-4 
+The entire node set is unreachable, is there a network problem?
+
+2015-12-07 22:44:42,234 - [INFO] - from application in play-internal-execution-context-1 
+ReactiveMongoPlugin stops, closing connections...
+
+2015-12-07 22:44:42,245 - [INFO] - from application in ForkJoinPool-2-worker-1 
+ReactiveMongo Connections stopped. [Success(Closed)]
+
+2015-12-07 22:44:42,299 - [INFO] - from application in play-internal-execution-context-1 
+ReactiveMongoPlugin starting...
+
+2015-12-07 22:44:42,299 - [INFO] - from application in play-internal-execution-context-1 
+ReactiveMongoPlugin successfully started with db 'came_tool'! Servers:
+		[localhost:27017]
+
+2015-12-07 22:44:42,300 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2015-12-07 22:44:42,339 - [ERROR] - from reactivemongo.core.actors.MongoDBSystem in reactivemongo-akka.actor.default-dispatcher-5 
+The entire node set is unreachable, is there a network problem?
 

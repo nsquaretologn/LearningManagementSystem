@@ -34,11 +34,11 @@ object AssignmentDao {
 
   def findAssignments(course_id:Int,assignment_id:Int): Future[Seq[JsValue]] = {
 
-  // Select only the documents which field 'firstName' equals 'Jack'
+  
   val query = Json.obj("id"->course_id,"assignments.id" -> assignment_id)
 
-  // select only the field 'lastName'
-  val filter = Json.obj("assignments"->1,"_id"->0)
+  // Filters
+  val filter = Json.obj("assignments"->Json.obj("$elemMatch"->Json.obj("id"->lecture_id)),"_id"->0)
 
   // val return_val= courses_collection.find(query,filter).cursor[Assignments].collect[Seq]()
 
