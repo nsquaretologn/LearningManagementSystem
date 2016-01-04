@@ -1,6 +1,6 @@
 // @SOURCE:/home/chandrasekar/Desktop/Independent_Study/Mti_Chat_Room/play-scala-intro/conf/routes
-// @HASH:106126f1de96c7c481f082d257e19c94e381aa9e
-// @DATE:Mon Dec 07 22:00:57 EST 2015
+// @HASH:9e951272fe17826c4fb9616c5654de1a907625ac
+// @DATE:Tue Dec 08 15:43:37 EST 2015
 
 import Routes.{prefix => _prefix, defaultPrefix => _defaultPrefix}
 import play.core._
@@ -13,9 +13,12 @@ import play.api.mvc._
 import Router.queryString
 
 
-// @LINE:28
+// @LINE:30
+// @LINE:29
 // @LINE:27
 // @LINE:26
+// @LINE:25
+// @LINE:24
 // @LINE:21
 // @LINE:20
 // @LINE:19
@@ -30,7 +33,7 @@ import Router.queryString
 // @LINE:6
 package controllers {
 
-// @LINE:28
+// @LINE:26
 // @LINE:16
 // @LINE:15
 // @LINE:14
@@ -49,7 +52,7 @@ def edit_lecture(): Call = {
 }
                                                 
 
-// @LINE:28
+// @LINE:26
 def getLecture(course_id:Int, lecture_id:Int): Call = {
    Call("GET", _prefix + { _defaultPrefix } + "lecture" + queryString(List(Some(implicitly[QueryStringBindable[Int]].unbind("course_id", course_id)), Some(implicitly[QueryStringBindable[Int]].unbind("lecture_id", lecture_id)))))
 }
@@ -64,7 +67,7 @@ def add_lecture(): Call = {
 }
                           
 
-// @LINE:26
+// @LINE:24
 // @LINE:11
 // @LINE:10
 // @LINE:9
@@ -80,15 +83,15 @@ def add_post(): Call = {
 }
                                                 
 
-// @LINE:26
-def getPosts(course_id:Int, post_id:Int): Call = {
-   Call("GET", _prefix + { _defaultPrefix } + "posts" + queryString(List(Some(implicitly[QueryStringBindable[Int]].unbind("course_id", course_id)), Some(implicitly[QueryStringBindable[Int]].unbind("post_id", post_id)))))
-}
-                                                
-
 // @LINE:11
 def delete_comment(): Call = {
    Call("POST", _prefix + { _defaultPrefix } + "deletecomment")
+}
+                                                
+
+// @LINE:24
+def getPost(course_id:Int, post_id:Int): Call = {
+   Call("GET", _prefix + { _defaultPrefix } + "post" + queryString(List(Some(implicitly[QueryStringBindable[Int]].unbind("course_id", course_id)), Some(implicitly[QueryStringBindable[Int]].unbind("post_id", post_id)))))
 }
                                                 
 
@@ -119,7 +122,34 @@ def add_comment(): Call = {
 }
                           
 
+// @LINE:30
+// @LINE:29
 // @LINE:27
+class ReverseCourseController {
+    
+
+// @LINE:29
+def add_course(): Call = {
+   Call("POST", _prefix + { _defaultPrefix } + "addcourse")
+}
+                                                
+
+// @LINE:27
+def getCourseInformation(course_id:Int): Call = {
+   Call("GET", _prefix + { _defaultPrefix } + "course" + queryString(List(Some(implicitly[QueryStringBindable[Int]].unbind("course_id", course_id)))))
+}
+                                                
+
+// @LINE:30
+def edit_course(): Call = {
+   Call("POST", _prefix + { _defaultPrefix } + "editcourse")
+}
+                                                
+    
+}
+                          
+
+// @LINE:25
 // @LINE:21
 // @LINE:20
 // @LINE:19
@@ -144,7 +174,7 @@ def add_assignment(): Call = {
 }
                                                 
 
-// @LINE:27
+// @LINE:25
 def getAssignment(course_id:Int, a_id:Int): Call = {
    Call("GET", _prefix + { _defaultPrefix } + "assignment" + queryString(List(Some(implicitly[QueryStringBindable[Int]].unbind("course_id", course_id)), Some(implicitly[QueryStringBindable[Int]].unbind("a_id", a_id)))))
 }
@@ -156,9 +186,12 @@ def getAssignment(course_id:Int, a_id:Int): Call = {
                   
 
 
-// @LINE:28
+// @LINE:30
+// @LINE:29
 // @LINE:27
 // @LINE:26
+// @LINE:25
+// @LINE:24
 // @LINE:21
 // @LINE:20
 // @LINE:19
@@ -173,7 +206,7 @@ def getAssignment(course_id:Int, a_id:Int): Call = {
 // @LINE:6
 package controllers.javascript {
 
-// @LINE:28
+// @LINE:26
 // @LINE:16
 // @LINE:15
 // @LINE:14
@@ -202,7 +235,7 @@ def edit_lecture : JavascriptReverseRoute = JavascriptReverseRoute(
 )
                         
 
-// @LINE:28
+// @LINE:26
 def getLecture : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.LectureController.getLecture",
    """
@@ -227,7 +260,7 @@ def add_lecture : JavascriptReverseRoute = JavascriptReverseRoute(
 }
               
 
-// @LINE:26
+// @LINE:24
 // @LINE:11
 // @LINE:10
 // @LINE:9
@@ -248,23 +281,23 @@ def add_post : JavascriptReverseRoute = JavascriptReverseRoute(
 )
                         
 
-// @LINE:26
-def getPosts : JavascriptReverseRoute = JavascriptReverseRoute(
-   "controllers.PostsController.getPosts",
-   """
-      function(course_id,post_id) {
-      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "posts" + _qS([(""" + implicitly[QueryStringBindable[Int]].javascriptUnbind + """)("course_id", course_id), (""" + implicitly[QueryStringBindable[Int]].javascriptUnbind + """)("post_id", post_id)])})
-      }
-   """
-)
-                        
-
 // @LINE:11
 def delete_comment : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.PostsController.delete_comment",
    """
       function() {
       return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "deletecomment"})
+      }
+   """
+)
+                        
+
+// @LINE:24
+def getPost : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.PostsController.getPost",
+   """
+      function(course_id,post_id) {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "post" + _qS([(""" + implicitly[QueryStringBindable[Int]].javascriptUnbind + """)("course_id", course_id), (""" + implicitly[QueryStringBindable[Int]].javascriptUnbind + """)("post_id", post_id)])})
       }
    """
 )
@@ -317,7 +350,49 @@ def add_comment : JavascriptReverseRoute = JavascriptReverseRoute(
 }
               
 
+// @LINE:30
+// @LINE:29
 // @LINE:27
+class ReverseCourseController {
+    
+
+// @LINE:29
+def add_course : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.CourseController.add_course",
+   """
+      function() {
+      return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "addcourse"})
+      }
+   """
+)
+                        
+
+// @LINE:27
+def getCourseInformation : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.CourseController.getCourseInformation",
+   """
+      function(course_id) {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "course" + _qS([(""" + implicitly[QueryStringBindable[Int]].javascriptUnbind + """)("course_id", course_id)])})
+      }
+   """
+)
+                        
+
+// @LINE:30
+def edit_course : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.CourseController.edit_course",
+   """
+      function() {
+      return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "editcourse"})
+      }
+   """
+)
+                        
+    
+}
+              
+
+// @LINE:25
 // @LINE:21
 // @LINE:20
 // @LINE:19
@@ -357,7 +432,7 @@ def add_assignment : JavascriptReverseRoute = JavascriptReverseRoute(
 )
                         
 
-// @LINE:27
+// @LINE:25
 def getAssignment : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.AssignmentController.getAssignment",
    """
@@ -374,9 +449,12 @@ def getAssignment : JavascriptReverseRoute = JavascriptReverseRoute(
         
 
 
-// @LINE:28
+// @LINE:30
+// @LINE:29
 // @LINE:27
 // @LINE:26
+// @LINE:25
+// @LINE:24
 // @LINE:21
 // @LINE:20
 // @LINE:19
@@ -392,7 +470,7 @@ def getAssignment : JavascriptReverseRoute = JavascriptReverseRoute(
 package controllers.ref {
 
 
-// @LINE:28
+// @LINE:26
 // @LINE:16
 // @LINE:15
 // @LINE:14
@@ -411,7 +489,7 @@ def edit_lecture(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 )
                       
 
-// @LINE:28
+// @LINE:26
 def getLecture(course_id:Int, lecture_id:Int): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.LectureController.getLecture(course_id, lecture_id), HandlerDef(this, "controllers.LectureController", "getLecture", Seq(classOf[Int], classOf[Int]), "GET", """""", _prefix + """lecture""")
 )
@@ -426,7 +504,7 @@ def add_lecture(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 }
                           
 
-// @LINE:26
+// @LINE:24
 // @LINE:11
 // @LINE:10
 // @LINE:9
@@ -442,15 +520,15 @@ def add_post(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 )
                       
 
-// @LINE:26
-def getPosts(course_id:Int, post_id:Int): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   controllers.PostsController.getPosts(course_id, post_id), HandlerDef(this, "controllers.PostsController", "getPosts", Seq(classOf[Int], classOf[Int]), "GET", """""", _prefix + """posts""")
-)
-                      
-
 // @LINE:11
 def delete_comment(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.PostsController.delete_comment(), HandlerDef(this, "controllers.PostsController", "delete_comment", Seq(), "POST", """""", _prefix + """deletecomment""")
+)
+                      
+
+// @LINE:24
+def getPost(course_id:Int, post_id:Int): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.PostsController.getPost(course_id, post_id), HandlerDef(this, "controllers.PostsController", "getPost", Seq(classOf[Int], classOf[Int]), "GET", """""", _prefix + """post""")
 )
                       
 
@@ -481,7 +559,34 @@ def add_comment(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 }
                           
 
+// @LINE:30
+// @LINE:29
 // @LINE:27
+class ReverseCourseController {
+    
+
+// @LINE:29
+def add_course(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.CourseController.add_course(), HandlerDef(this, "controllers.CourseController", "add_course", Seq(), "POST", """""", _prefix + """addcourse""")
+)
+                      
+
+// @LINE:27
+def getCourseInformation(course_id:Int): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.CourseController.getCourseInformation(course_id), HandlerDef(this, "controllers.CourseController", "getCourseInformation", Seq(classOf[Int]), "GET", """""", _prefix + """course""")
+)
+                      
+
+// @LINE:30
+def edit_course(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.CourseController.edit_course(), HandlerDef(this, "controllers.CourseController", "edit_course", Seq(), "POST", """""", _prefix + """editcourse""")
+)
+                      
+    
+}
+                          
+
+// @LINE:25
 // @LINE:21
 // @LINE:20
 // @LINE:19
@@ -506,7 +611,7 @@ def add_assignment(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 )
                       
 
-// @LINE:27
+// @LINE:25
 def getAssignment(course_id:Int, a_id:Int): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.AssignmentController.getAssignment(course_id, a_id), HandlerDef(this, "controllers.AssignmentController", "getAssignment", Seq(classOf[Int], classOf[Int]), "GET", """""", _prefix + """assignment""")
 )

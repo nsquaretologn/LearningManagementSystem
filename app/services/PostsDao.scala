@@ -13,7 +13,7 @@ import reactivemongo.api.QueryOpts
 import reactivemongo.core.commands.Count
 import reactivemongo.bson.BSONObjectID
 import reactivemongo.bson.BSONDocument
-import play.api.libs.json.{Writes, Json, JsObject}  
+import play.api.libs.json.{Writes, Json, JsObject,JsValue}  
 
 
 /** A data access object for messages backed by a MongoDB collection */
@@ -34,58 +34,19 @@ object PostsDao {
     }
   }
 
-  def findPosts(course_id:Int,post_id:Int): Future[Seq[Comments]] = {
+  def findPosts(course_id:Int,post_id:Int): Future[Seq[JsValue]] = {
 
-  // Select only the documents which field 'firstName' equals 'Jack'
-  val query = BSONDocument("post.id" -> post_id,"id"->course_id)
+  //  Query
+  val query = Json.obj("id"->course_id,"post.id" -> post_id)
 
-  // select only the field 'lastName'
-  val filter = BSONDocument("post.p_comments" -> 1)
+  // Filters
+  val filter = Json.obj("post"->Json.obj("$elemMatch"->Json.obj("id"->post_id)),"_id"->0)
 
-  courses_collection.find(query,filter).cursor[Comments].collect[Seq]()
+  val return_val= courses_collection.find(query,filter).cursor[JsValue].collect[Seq]()
+
+  return_val
+    
+
   }
-
-
-
-
-
-  // /**
-  //  * Save a message.
-  //  *
-  //  * @return The saved message, once saved.
-  //  */
-  // def save(message: Post): Future[Post] = {
-  //   courses_collection.save(message).map {
-  //     case ok if ok.ok => message
-  //     case error => throw new RuntimeException(error.message)
-  //   }
-  // }
-
-  // /**
-  //  * Find all the messages.
-  //  *
-  //  * @param page The page to retrieve, 0 based.
-  //  * @param perPage The number of results per page.   
-  //  * @return All of the messages.
-  //  */
-
-  // def findUser(user_id: Int): Future[Seq[User]] = {
-
-  // // Select only the documents which field 'firstName' equals 'Jack'
-  // val query = BSONDocument("id" -> 2)
-
-  // // select only the field 'lastName'
-  // val filter = BSONDocument("course_info" -> 0)
-
-  // user_collection.find(query,filter).cursor[User].collect[Seq]()
-  // }
-
-
-
-
- // / // /** The total number of messages */
- //  def post_count: Future[Int] = {
- //    ReactiveMongoPlugin.db.command(Count(collection.name))
- //  }
 
 }

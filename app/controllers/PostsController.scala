@@ -45,7 +45,6 @@ object PostsController extends Controller {
       PostsDao.update_post(filter_condition,update_value).onComplete {
           case Success(posts) => {response = "Posted"}
           case Failure(t) => {response = "Error Not Posted"}
-
       }
 
       Future{Ok(response)}
@@ -176,22 +175,12 @@ object PostsController extends Controller {
 
   /** Get Posts and Comment List */
   def getPost(course_id:Int,post_id:Int) = Action.async{ 
- 
-          val messages = PostsDao.findPosts(course_id,post_id)
-          
-          messages.onComplete
-          {
-             case p_user=>  println(p_user)
-                     //When a person's profile is successfully returned, insert his post information in to the database
-                      // PostsDao.save(Post(id,p_user.head,p_uploaded_time,p_likes,p_text)).map(_ => Created)
-                      // val post = Post(id,p_user.head,p_uploaded_time,p_likes,p_text)
-                      // println(Json.toJson(post))     
-                      
-          }
 
-          Future{ Ok("hi") }  
-
-          
+   req =>
+  val messages = PostsDao.findPosts(course_id,post_id)
+  messages.map {
+     value => Ok(Json.toJson(value))
+  } 
 
 }  
 

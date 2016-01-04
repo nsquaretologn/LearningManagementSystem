@@ -24,13 +24,13 @@ object AssignmentDao {
   private def courses_collection =  ReactiveMongoPlugin.db.collection[JSONCollection]("courses")
 
 
-  // def update_post(filter_condition:JsObject,update_value:JsObject) : Future[Boolean] = {
+  def update_post(filter_condition:JsObject,update_value:JsObject) : Future[Boolean] = {
 
-  //   courses_collection.update(filter_condition,update_value).map {
-  //     case ok if ok.ok => true
-  //     case error => throw new RuntimeException(error.message)
-  //   }
-  // }
+    courses_collection.update(filter_condition,update_value).map {
+      case ok if ok.ok => true
+      case error => throw new RuntimeException(error.message)
+    }
+  }
 
   def findAssignments(course_id:Int,assignment_id:Int): Future[Seq[JsValue]] = {
 
@@ -38,15 +38,13 @@ object AssignmentDao {
   val query = Json.obj("id"->course_id,"assignments.id" -> assignment_id)
 
   // Filters
-  val filter = Json.obj("assignments"->Json.obj("$elemMatch"->Json.obj("id"->lecture_id)),"_id"->0)
+  val filter = Json.obj("assignments"->Json.obj("$elemMatch"->Json.obj("id"->assignment_id)),"_id"->0)
 
   // val return_val= courses_collection.find(query,filter).cursor[Assignments].collect[Seq]()
 
   val return_val= courses_collection.find(query,filter).cursor[JsValue].collect[Seq]()
 
   return_val
-    
-
 
   }
 

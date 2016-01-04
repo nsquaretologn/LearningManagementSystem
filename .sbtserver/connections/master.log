@@ -1,0 +1,19 @@
+New log file opened at Mon Nov 23 15:32:12 EST 2015 by 8558@chandrasekar-Inspiron-5547
+Taking next connection to: 33369
+New client attempting to connect on port: 37709-33369
+  Address = /127.0.1.1:33369
+This client on port 37709 has uuid a8bde2db-98bf-4197-9357-b0fc6b6aff13 configName activator humanReadableName Activator protocolVersion 3 featureTags Vector()
+Connected Clients: activator-a8bde2db-98bf-4197-9357-b0fc6b6aff13
+Taking next connection to: 33369
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 33369
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 33369
+Checking to see if clients are empty...
+No non-daemon clients connected after 3 min. Shutting down.
+Server socket thread exiting.
+0 clients open, will close them...
+All client sockets have been closed.
+Closing the 8558@chandrasekar-Inspiron-5547 logs at Mon Nov 23 16:24:40 EST 2015, goodbye.

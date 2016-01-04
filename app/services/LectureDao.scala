@@ -22,13 +22,13 @@ object LectureDao {
   private def courses_collection =  ReactiveMongoPlugin.db.collection[JSONCollection]("courses")
 
 
-  // def update_post(filter_condition:JsObject,update_value:JsObject) : Future[Boolean] = {
+  def update_post(filter_condition:JsObject,update_value:JsObject) : Future[Boolean] = {
 
-  //   courses_collection.update(filter_condition,update_value).map {
-  //     case ok if ok.ok => true
-  //     case error => throw new RuntimeException(error.message)
-  //   }
-  // }
+    courses_collection.update(filter_condition,update_value).map {
+      case ok if ok.ok => true
+      case error => throw new RuntimeException(error.message)
+    }
+  }
 
   def findLecture(course_id:Int,lecture_id:Int): Future[Seq[JsValue]] = {
 

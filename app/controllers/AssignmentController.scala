@@ -25,10 +25,6 @@ import util._
 
 object AssignmentController extends Controller {
 
-
-
-
-
   // Request  Body
 
   def parse_value_body(body:MultipartFormData[TemporaryFile],key_string:String): Option[String] = {
@@ -237,11 +233,11 @@ object AssignmentController extends Controller {
       val a_id =(req.body \ "a_id").as[Int]
   
       val filter_condition = Json.obj("id" -> c_id,"assignments.id"->a_id)
-      val query_json_object= Json.obj("assignments" -> a_id)
+      val query_json_object= Json.obj("id" -> a_id)
 
       val update_value = DBQueryBuilder.pull("assignments",query_json_object)      
 
-      Future{PostsDao.update_post(filter_condition,update_value)}
+      Future{AssignmentDao.update_post(filter_condition,update_value)}
       Future{Ok("hi")}
     }
 

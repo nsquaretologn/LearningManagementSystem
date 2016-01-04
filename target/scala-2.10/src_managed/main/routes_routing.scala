@@ -1,6 +1,6 @@
 // @SOURCE:/home/chandrasekar/Desktop/Independent_Study/Mti_Chat_Room/play-scala-intro/conf/routes
-// @HASH:106126f1de96c7c481f082d257e19c94e381aa9e
-// @DATE:Mon Dec 07 22:00:57 EST 2015
+// @HASH:9e951272fe17826c4fb9616c5654de1a907625ac
+// @DATE:Tue Dec 08 15:43:37 EST 2015
 
 
 import play.core._
@@ -76,18 +76,30 @@ private[this] lazy val controllers_AssignmentController_edit_assignment10 = Rout
 private[this] lazy val controllers_AssignmentController_delete_assignment11 = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("deleteassignment"))))
         
 
-// @LINE:26
-private[this] lazy val controllers_PostsController_getPosts12 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("posts"))))
+// @LINE:24
+private[this] lazy val controllers_PostsController_getPost12 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("post"))))
         
 
-// @LINE:27
+// @LINE:25
 private[this] lazy val controllers_AssignmentController_getAssignment13 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("assignment"))))
         
 
-// @LINE:28
+// @LINE:26
 private[this] lazy val controllers_LectureController_getLecture14 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("lecture"))))
         
-def documentation = List(("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """addpost""","""controllers.PostsController.add_post"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """addcomment""","""controllers.PostsController.add_comment"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """editpost""","""controllers.PostsController.edit_post"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """editcomment""","""controllers.PostsController.edit_comment"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """deletepost""","""controllers.PostsController.delete_post"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """deletecomment""","""controllers.PostsController.delete_comment"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """addlecture""","""controllers.LectureController.add_lecture"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """editlecture""","""controllers.LectureController.edit_lecture"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """deletelecture""","""controllers.LectureController.delete_lecture"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """addassignment""","""controllers.AssignmentController.add_assignment"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """editassignment""","""controllers.AssignmentController.edit_assignment"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """deleteassignment""","""controllers.AssignmentController.delete_assignment"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """posts""","""controllers.PostsController.getPosts(course_id:Int, post_id:Int)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """assignment""","""controllers.AssignmentController.getAssignment(course_id:Int, a_id:Int)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """lecture""","""controllers.LectureController.getLecture(course_id:Int, lecture_id:Int)""")).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
+
+// @LINE:27
+private[this] lazy val controllers_CourseController_getCourseInformation15 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("course"))))
+        
+
+// @LINE:29
+private[this] lazy val controllers_CourseController_add_course16 = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("addcourse"))))
+        
+
+// @LINE:30
+private[this] lazy val controllers_CourseController_edit_course17 = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("editcourse"))))
+        
+def documentation = List(("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """addpost""","""controllers.PostsController.add_post"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """addcomment""","""controllers.PostsController.add_comment"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """editpost""","""controllers.PostsController.edit_post"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """editcomment""","""controllers.PostsController.edit_comment"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """deletepost""","""controllers.PostsController.delete_post"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """deletecomment""","""controllers.PostsController.delete_comment"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """addlecture""","""controllers.LectureController.add_lecture"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """editlecture""","""controllers.LectureController.edit_lecture"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """deletelecture""","""controllers.LectureController.delete_lecture"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """addassignment""","""controllers.AssignmentController.add_assignment"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """editassignment""","""controllers.AssignmentController.edit_assignment"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """deleteassignment""","""controllers.AssignmentController.delete_assignment"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """post""","""controllers.PostsController.getPost(course_id:Int, post_id:Int)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """assignment""","""controllers.AssignmentController.getAssignment(course_id:Int, a_id:Int)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """lecture""","""controllers.LectureController.getLecture(course_id:Int, lecture_id:Int)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """course""","""controllers.CourseController.getCourseInformation(course_id:Int)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """addcourse""","""controllers.CourseController.add_course"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """editcourse""","""controllers.CourseController.edit_course""")).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
   case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
   case l => s ++ l.asInstanceOf[List[(String,String,String)]] 
 }}
@@ -191,15 +203,15 @@ case controllers_AssignmentController_delete_assignment11(params) => {
 }
         
 
-// @LINE:26
-case controllers_PostsController_getPosts12(params) => {
+// @LINE:24
+case controllers_PostsController_getPost12(params) => {
    call(params.fromQuery[Int]("course_id", None), params.fromQuery[Int]("post_id", None)) { (course_id, post_id) =>
-        invokeHandler(controllers.PostsController.getPosts(course_id, post_id), HandlerDef(this, "controllers.PostsController", "getPosts", Seq(classOf[Int], classOf[Int]),"GET", """""", Routes.prefix + """posts"""))
+        invokeHandler(controllers.PostsController.getPost(course_id, post_id), HandlerDef(this, "controllers.PostsController", "getPost", Seq(classOf[Int], classOf[Int]),"GET", """""", Routes.prefix + """post"""))
    }
 }
         
 
-// @LINE:27
+// @LINE:25
 case controllers_AssignmentController_getAssignment13(params) => {
    call(params.fromQuery[Int]("course_id", None), params.fromQuery[Int]("a_id", None)) { (course_id, a_id) =>
         invokeHandler(controllers.AssignmentController.getAssignment(course_id, a_id), HandlerDef(this, "controllers.AssignmentController", "getAssignment", Seq(classOf[Int], classOf[Int]),"GET", """""", Routes.prefix + """assignment"""))
@@ -207,10 +219,34 @@ case controllers_AssignmentController_getAssignment13(params) => {
 }
         
 
-// @LINE:28
+// @LINE:26
 case controllers_LectureController_getLecture14(params) => {
    call(params.fromQuery[Int]("course_id", None), params.fromQuery[Int]("lecture_id", None)) { (course_id, lecture_id) =>
         invokeHandler(controllers.LectureController.getLecture(course_id, lecture_id), HandlerDef(this, "controllers.LectureController", "getLecture", Seq(classOf[Int], classOf[Int]),"GET", """""", Routes.prefix + """lecture"""))
+   }
+}
+        
+
+// @LINE:27
+case controllers_CourseController_getCourseInformation15(params) => {
+   call(params.fromQuery[Int]("course_id", None)) { (course_id) =>
+        invokeHandler(controllers.CourseController.getCourseInformation(course_id), HandlerDef(this, "controllers.CourseController", "getCourseInformation", Seq(classOf[Int]),"GET", """""", Routes.prefix + """course"""))
+   }
+}
+        
+
+// @LINE:29
+case controllers_CourseController_add_course16(params) => {
+   call { 
+        invokeHandler(controllers.CourseController.add_course, HandlerDef(this, "controllers.CourseController", "add_course", Nil,"POST", """""", Routes.prefix + """addcourse"""))
+   }
+}
+        
+
+// @LINE:30
+case controllers_CourseController_edit_course17(params) => {
+   call { 
+        invokeHandler(controllers.CourseController.edit_course, HandlerDef(this, "controllers.CourseController", "edit_course", Nil,"POST", """""", Routes.prefix + """editcourse"""))
    }
 }
         

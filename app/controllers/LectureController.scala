@@ -99,7 +99,7 @@ object LectureController extends Controller {
 
         val update_value = DBQueryBuilder.push("lectures",Lectures(lec_id,l_topic,l_uploaded_date,l_summary,destination_file_name))
 
-        PostsDao.update_post(filter_condition,update_value)
+        LectureDao.update_post(filter_condition,update_value)
 
      }.getOrElse {        Ok("Sorry Could not upload file")
       }      
@@ -172,7 +172,7 @@ object LectureController extends Controller {
 
         println(filter_condition)
 
-        PostsDao.update_post(filter_condition,update_value)
+        LectureDao.update_post(filter_condition,update_value)
 
         Future{Ok("hi")}
     }
@@ -199,10 +199,10 @@ object LectureController extends Controller {
  	def delete_lecture = Action.async(parse.json) { 
 
            req =>
-           // Course  Id
+      // Course  Id
       val c_id = (req.body \ "c_id").as[Int]
       
-              // Lecture Id
+      // Lecture Id
       val l_id =(req.body \ "l_id").as[Int]
   
       val filter_condition = Json.obj("id" -> c_id)
@@ -210,18 +210,9 @@ object LectureController extends Controller {
 
       val update_value = DBQueryBuilder.pull("lectures",query_json_object)      
 
-
-
-
-
-      println(filter_condition)
-      println(update_value)
-
-      PostsDao.update_post(filter_condition,update_value)
+      LectureDao.update_post(filter_condition,update_value)
 
       Future{Ok("hi")}
-
-
     }
 
 }
