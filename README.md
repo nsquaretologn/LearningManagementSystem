@@ -55,7 +55,7 @@ Input: Delete Assignment
 curl --header "Content-type: application/json" --request POST --data '{"c_id": 2, "a_id": 2}' http://localhost:9000/deleteassignment
 
 
-Add/ Edit Course
+Add/ Edit Course:
 curl --header "Content-type: application/json" --request POST --data '{"c_id" : 2, "instructor_id" : 3, "c_name" : "a","c_summary" : "b"}' http://localhost:9000/addcourse
 
 curl --header "Content-type: application/json" --request POST --data '{"c_id" : 2, "instructor_id" : 2, "c_name" : "new name","c_summary" : "new summary"}' http://localhost:9000/editcourse
