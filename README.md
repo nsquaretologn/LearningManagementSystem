@@ -1,3 +1,9 @@
+Project: Developing Learning Management System Using Play-Scala Framework
+
+Most learning management systems available online like saki, econf, eledge are developed using Java based web frameworks. Use of Java based web frameworks is less productive than Scala based web framework. The proposed learning management tool is developed using all the advantages of play-Scala framework. 
+
+
+
 Project Demo:
 
 Module 1: Post
