@@ -13,6 +13,8 @@ Module 1: Post
 3. Edit and Delete options for the post and comments are incorporated in this project.
 
 Module 2: Lecture
+
+
 1. In this module, the lecturer is given option to add lecture for any particular course.
 2. Lecturer can edit/delete the posted lecture.
 
